@@ -58,7 +58,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = { "tsserver", "lua_ls", "rubocop", "cssls" },
 
-				automatic_installation = true
+				automatic_installation = true,
 			})
 		end,
 	},
@@ -109,7 +109,7 @@ return {
 				settings = {
 					Lua = {
 						diagnostics = {
-							globals = { "vim" }
+							globals = { "vim" },
 						},
 					},
 				},

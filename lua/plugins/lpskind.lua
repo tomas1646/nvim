@@ -1,4 +1,3 @@
--- Para q el autocomplete te muestre si es funcion, variable, etc, mas bonito
 return {
 	"onsails/lspkind.nvim",
 

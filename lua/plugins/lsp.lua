@@ -58,7 +58,7 @@ return {
 		lazy = false,
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "tsserver", "lua_ls", "rubocop", "cssls" },
+				ensure_installed = { "ts_ls", "lua_ls", "rubocop", "cssls" },
 
 				automatic_installation = true,
 			})
@@ -74,7 +74,7 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			-- Typescript / Javascript
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				filetypes = {
 					"javascript",
 					"javascriptreact",

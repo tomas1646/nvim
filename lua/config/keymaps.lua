@@ -19,6 +19,9 @@ set("v", "K", ":m '<-2<CR>gv=gv")
 set("n", "<leader>y", '"+y')
 set("v", "<leader>y", '"+y')
 
+-- Paste inside highlighted text and don't lose the content in the register
+set({ "n", "v" }, "<leader>p", '"_dP')
+
 -- Find and replace current word
 set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -27,6 +30,7 @@ set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- *****************
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 
 -- *****************
 -- Telescope

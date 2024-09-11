@@ -58,7 +58,7 @@ return {
 		lazy = false,
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "ts_ls", "lua_ls", "rubocop", "cssls" },
+				ensure_installed = { "lua_ls" },
 
 				automatic_installation = true,
 			})

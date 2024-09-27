@@ -23,6 +23,7 @@ return {
 				javascriptreact = { prettier },
 				typescript = { prettier },
 				typescriptreact = { prettier },
+        scss = { prettier },
 				css = { prettier },
 				lua = {
 					function()

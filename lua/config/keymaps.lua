@@ -64,5 +64,5 @@ set("n", "<A-a>", "<Cmd>BufferCloseAllButCurrent<CR>", opts)
 -- *****************
 -- Formatting
 -- *****************
-set("n", "<leader>fc", "<Cmd>:Format<CR>", { noremap = true }) -- Format Current File
-set("n", "<leader>fa", "<Cmd>:bufdo FormatWrite<CR>:wa<CR>") -- Format and save all buffers
+set({ "n", "v" }, "<leader>fc", "<Cmd>:Format<CR>", { noremap = true }) -- Format Current File
+set("n", "<leader>fa", "<Cmd>:bufdo FormatSync<CR>:wa<CR>") -- Format and save all buffers

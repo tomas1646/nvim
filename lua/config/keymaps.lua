@@ -25,6 +25,17 @@ set({ "n", "v" }, "<leader>p", '"_dP')
 -- Find and replace current word
 set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Regex t to translate -> javascript
+-- :%s/'\(\w\+\)\.\(\%(\w\+\.\?\)\+\)\.\(\w\+\)'/\{ file: '\1', model: '\2', key: '\3' \}
+set("n", "<leader>ft", [[:%s/'\(\w\+\)\.\(\%(\w\+\.\?\)\+\)\.\(\w\+\)'/\{ file: '\1', model: '\2', key: '\3' \}]])
+
+-- Quickfix list
+set("n", "<C-k>", "<cmd>cnext<CR>zz")
+set("n", "<C-j>", "<cmd>cprev<CR>zz")
+
+-- Tmux sessionizer
+set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+
 -- *****************
 -- LSP
 -- *****************

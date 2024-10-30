@@ -38,6 +38,7 @@ return {
 			scss = { "prettier" },
 			css = { "prettier" },
 			ruby = { "rubocop" },
+			jsonc = { "prettier" },
 		},
 	},
 }

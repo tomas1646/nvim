@@ -30,8 +30,8 @@ set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 set("n", "<leader>ft", [[:%s/'\(\w\+\)\.\(\%(\w\+\.\?\)\+\)\.\(\w\+\)'/\{ file: '\1', model: '\2', key: '\3' \}]])
 
 -- Quickfix list
-set("n", "<C-k>", "<cmd>cnext<CR>zz")
-set("n", "<C-j>", "<cmd>cprev<CR>zz")
+set("n", "<C-k>", "<cmd>cprev<CR>zz")
+set("n", "<C-j>", "<cmd>cnext<CR>zz")
 
 -- Tmux sessionizer
 set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -42,7 +42,9 @@ set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { noremap = true, silent = true })
-set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
+set("n", "<leader>hh", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+set("n", "<leader>he", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
 
 -- *****************
 -- Telescope

@@ -10,10 +10,10 @@ return {
 			highlight = { enable = true },
 
 			indent = {
-        enable = true,
+				enable = true,
 
-        disable = { "ruby" }
-      },
+				disable = { "ruby" },
+			},
 
 			sync_install = false,
 
@@ -34,6 +34,7 @@ return {
 				"vim",
 				"vimdoc",
 				"ruby",
+				"dockerfile",
 			},
 		})
 	end,

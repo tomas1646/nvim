@@ -43,8 +43,7 @@ set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent
 set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 set("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { noremap = true, silent = true })
 set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-set("n", "<leader>hh", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
-set("n", "<leader>he", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
+set("n", "<leader>h", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 
 -- *****************
 -- Telescope

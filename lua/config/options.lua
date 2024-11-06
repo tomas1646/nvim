@@ -35,9 +35,21 @@ vim.g.clipboard = {
 }
 
 -- Highligh yanked text
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+	[[
   augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=200}
   augroup END
-]], false)
+]],
+	false
+)
+
+-- Show diagnostics on hover
+vim.o.updatetime = 250
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+	group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+	callback = function()
+		vim.diagnostic.open_float(nil, { focus = false })
+	end,
+})

@@ -48,8 +48,8 @@ vim.api.nvim_exec(
 -- Show diagnostics on hover
 vim.o.updatetime = 250
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-	group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+	group = vim.api.nvim_create_augroup("float_diagnostic_cursor", { clear = true }),
 	callback = function()
-		vim.diagnostic.open_float(nil, { focus = false })
+		vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
 	end,
 })

@@ -16,8 +16,12 @@ set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Copy system clipboard
-set("n", "<leader>y", '"+y')
-set("v", "<leader>y", '"+y')
+-- set("n", "<leader>y", '"+y')
+-- set("v", "<leader>y", '"+y')
+
+-- Copy to system clipboard
+set("n", "y", '"+y')
+set("v", "y", '"+y')
 
 -- Paste inside highlighted text and don't lose the content in the register
 set({ "n", "v" }, "<leader>p", '"_dP')

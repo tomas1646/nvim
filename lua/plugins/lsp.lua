@@ -2,8 +2,6 @@ return {
 	-- Autocomplete
 	{
 		"hrsh7th/nvim-cmp",
-    -- FIXME: Main is broken
-		commit = "1e1900b0769324a9675ef85b38f99cca29e203b3",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
@@ -117,6 +115,13 @@ return {
 						},
 					},
 				},
+				capabilities = capabilities,
+			})
+
+			-- C & C++ | Clangd
+			lspconfig.clangd.setup({
+				filetypes = { "c", "cpp" },
+
 				capabilities = capabilities,
 			})
 		end,

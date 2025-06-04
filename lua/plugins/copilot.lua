@@ -19,7 +19,7 @@ return {
 				enable = false,
 			},
 			-- NOTE: Node.js version must be > 18.x
-			copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v20.5.0/bin/node",
+			copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v22.14.0/bin/node",
 		})
 	end,
 }

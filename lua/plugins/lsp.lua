@@ -92,10 +92,19 @@ return {
 			})
 
 			-- Rubocop
-			lspconfig.rubocop.setup({
+			-- lspconfig.rubocop.setup({
+			-- 	filetypes = { "ruby" },
+			--
+			-- 	capabilities = capabilities,
+			-- })
+
+			-- Ruby-LSP
+			lspconfig.ruby_lsp.setup({
 				filetypes = { "ruby" },
 
 				capabilities = capabilities,
+
+				cmd = { "/home/tomas1646/.rbenv/shims/ruby-lsp" },
 			})
 
 			-- CSS
@@ -124,6 +133,9 @@ return {
 
 				capabilities = capabilities,
 			})
+
+			-- Dockerfile
+			lspconfig.dockerls.setup({})
 		end,
 	},
 }

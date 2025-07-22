@@ -61,6 +61,7 @@ return {
 				ensure_installed = { "lua_ls" },
 
 				automatic_installation = true,
+        automatic_enable = false
 			})
 		end,
 	},
@@ -90,6 +91,11 @@ return {
 
 				capabilities = capabilities,
 			})
+
+      -- eslint
+      lspconfig.eslint.setup({
+        capabilities = capabilities
+      })
 
 			-- Rubocop
 			-- lspconfig.rubocop.setup({

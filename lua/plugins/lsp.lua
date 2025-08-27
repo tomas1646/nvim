@@ -42,30 +42,6 @@ return {
 			})
 		end,
 	},
-	-- LSPs
-	-- Order 1.mason -> 2. mason-lspconfig.nvim -> 3. lspconfig
-
-	{
-		"williamboman/mason.nvim", -- Install LSP, DAP, Formatters
-		lazy = false,
-		config = function()
-			require("mason").setup()
-		end,
-	},
-
-	{
-		"williamboman/mason-lspconfig.nvim", -- mason-lspconfig bridges mason.nvim with the lspconfig plugin - making it easier to use both plugins together.
-		lazy = false,
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls" },
-
-				automatic_installation = true,
-        automatic_enable = false
-			})
-		end,
-	},
-
 	{
 		"neovim/nvim-lspconfig", -- Nvim LSP client config
 		lazy = false,

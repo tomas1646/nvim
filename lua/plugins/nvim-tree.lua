@@ -15,7 +15,7 @@ return {
 
 			filters = {
 				git_ignored = false,
-				dotfiles = true,
+				dotfiles = false
 			},
 
 			renderer = {
@@ -23,6 +23,7 @@ return {
 				highlight_diagnostics = "all",
 				highlight_hidden = "all",
 				special_files = {},
+        root_folder_label = false
 			},
 
 			diagnostics = {

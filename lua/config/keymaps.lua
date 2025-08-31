@@ -15,10 +15,6 @@ set("n", "N", "Nzzzv", { noremap = true })
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Copy system clipboard
--- set("n", "<leader>y", '"+y')
--- set("v", "<leader>y", '"+y')
-
 -- Copy to system clipboard
 set("n", "y", '"+y')
 set("v", "y", '"+y')
@@ -67,13 +63,7 @@ local opts = { noremap = true, silent = true }
 -- Move to previous/next
 set("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
 set("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
--- Goto buffer in position...
-set("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
-set("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
-set("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
-set("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
-set("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
-set("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
+
 -- Close
 set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 set("n", "<A-a>", "<Cmd>BufferCloseAllButCurrent<CR>", opts)
@@ -83,3 +73,10 @@ set("n", "<A-a>", "<Cmd>BufferCloseAllButCurrent<CR>", opts)
 -- *****************
 set({ "n", "v" }, "<leader>fc", "<Cmd>:Format<CR>", { noremap = true }) -- Format Current File
 set("n", "<leader>fa", "<Cmd>:bufdo FormatSync<CR>:wa<CR>") -- Format and save all buffers
+
+-- *****************
+-- DiffView
+-- *****************
+set("n", "<leader>do", ":DiffviewOpen<CR>")
+set("n", "<leader>dc", ":DiffviewClose<CR>")
+

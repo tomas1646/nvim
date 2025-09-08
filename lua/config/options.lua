@@ -22,17 +22,7 @@ opt.incsearch = true
 opt.termguicolors = true
 
 -- System clipboard
-vim.g.clipboard = {
-	name = "xclip",
-	copy = {
-		["+"] = "xclip -selection clipboard",
-		["*"] = "xclip -selection clipboard",
-	},
-	paste = {
-		["+"] = "xclip -out -selection clipboard",
-		["*"] = "xclip -out -selection clipboard",
-	},
-}
+vim.opt.clipboard = "unnamedplus"
 
 -- Highligh yanked text
 vim.api.nvim_exec(

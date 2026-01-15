@@ -1,41 +1,43 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
+  "nvim-treesitter/nvim-treesitter",
 
-	build = ":TSUpdate",
+  branch = "master",
 
-	lazy = false,
+  build = ":TSUpdate",
 
-	config = function()
-		require("nvim-treesitter.configs").setup({
-			highlight = { enable = true },
+  lazy = false,
 
-			indent = {
-				enable = true,
+  config = function()
+    require("nvim-treesitter.configs").setup({
+      highlight = { enable = true },
 
-				disable = { "ruby" },
-			},
+      indent = {
+        enable = true,
 
-			sync_install = false,
+        disable = { "ruby" },
+      },
 
-			auto_install = true,
+      sync_install = false,
 
-			ensure_installed = {
-				"bash",
-				"dockerfile",
-				"scss",
-				"css",
-				"html",
-				"javascript",
-				"jsdoc",
-				"json",
-				"lua",
-				"typescript",
-				"tsx",
-				"vim",
-				"vimdoc",
-				"ruby",
-				"dockerfile",
-			},
-		})
-	end,
+      auto_install = true,
+
+      ensure_installed = {
+        "bash",
+        "dockerfile",
+        "scss",
+        "css",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "lua",
+        "typescript",
+        "tsx",
+        "vim",
+        "vimdoc",
+        "ruby",
+        "dockerfile",
+      },
+    })
+  end,
 }

@@ -22,6 +22,7 @@ return {
       auto_install = true,
 
       ensure_installed = {
+        "astro",
         "bash",
         "dockerfile",
         "scss",

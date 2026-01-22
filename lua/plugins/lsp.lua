@@ -74,6 +74,21 @@ return {
       })
       vim.lsp.enable('eslint')
 
+      -- astro
+      vim.lsp.config('astro', {
+        filetypes = { "astro" },
+
+        capabilities = capabilities,
+
+        before_init = function(_, config)
+          if config.init_options and config.init_options.typescript and not config.init_options.typescript.tsdk then
+            config.init_options.typescript.tsdk =
+            "/home/tomas1646/.nvm/versions/node/v22.14.0/lib/node_modules/typescript/lib"
+          end
+        end,
+      })
+      vim.lsp.enable('astro')
+
       -- Ruby-LSP
       vim.lsp.config('ruby_lsp', {
         filetypes = { "ruby" },

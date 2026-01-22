@@ -49,6 +49,7 @@ return {
       ruby = { "rubocop" },
       json = { "prettier" },
       jsonc = { "prettier" },
+      astro = { "prettier" }
     },
   },
 }

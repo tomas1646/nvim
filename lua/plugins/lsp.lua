@@ -83,7 +83,7 @@ return {
         before_init = function(_, config)
           if config.init_options and config.init_options.typescript and not config.init_options.typescript.tsdk then
             config.init_options.typescript.tsdk =
-            "/home/tomas1646/.nvm/versions/node/v22.14.0/lib/node_modules/typescript/lib"
+            "/home/tomas1646/.local/share/mise/installs/node/24.14.0/bin/typescript-language-server"
           end
         end,
       })
@@ -95,9 +95,15 @@ return {
 
         capabilities = capabilities,
 
-        cmd = { "/home/tomas1646/.rbenv/shims/ruby-lsp" },
+        cmd = { "/home/tomas1646/.local/share/mise/installs/ruby/3.4.1/bin/ruby-lsp" },
       })
       vim.lsp.enable('ruby_lsp')
+
+      -- Ruby ERB
+      vim.lsp.config('herb_ls', {
+        capabilities = capabilities,
+      })
+      vim.lsp.enable('herb_ls')
 
       -- CSS
       vim.lsp.config('cssls', {

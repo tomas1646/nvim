@@ -1,44 +1,19 @@
 return {
   "nvim-treesitter/nvim-treesitter",
 
-  branch = "master",
+  branch = 'main',
 
   build = ":TSUpdate",
 
   lazy = false,
 
   config = function()
-    require("nvim-treesitter.configs").setup({
-      highlight = { enable = true },
+    local languages = {
+      "astro", "bash", "dockerfile", "scss", "css", "html",
+      "javascript", "jsdoc", "json", "lua", "typescript",
+      "tsx", "vim", "vimdoc", "ruby"
+    }
 
-      indent = {
-        enable = true,
-
-        disable = { "ruby" },
-      },
-
-      sync_install = false,
-
-      auto_install = true,
-
-      ensure_installed = {
-        "astro",
-        "bash",
-        "dockerfile",
-        "scss",
-        "css",
-        "html",
-        "javascript",
-        "jsdoc",
-        "json",
-        "lua",
-        "typescript",
-        "tsx",
-        "vim",
-        "vimdoc",
-        "ruby",
-        "dockerfile",
-      },
-    })
+    require("nvim-treesitter").install(languages)
   end,
 }

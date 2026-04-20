@@ -83,7 +83,7 @@ return {
         before_init = function(_, config)
           if config.init_options and config.init_options.typescript and not config.init_options.typescript.tsdk then
             config.init_options.typescript.tsdk =
-            "/home/tomas1646/.local/share/mise/installs/node/24.14.0/bin/typescript-language-server"
+            "/home/tomas1646/.local/share/mise/installs/node/24.14.0/lib/node_modules/typescript/lib"
           end
         end,
       })

@@ -26,20 +26,52 @@ vim.opt.clipboard = "unnamedplus"
 
 -- Highligh yanked text
 vim.api.nvim_exec(
-	[[
+  [[
   augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=200}
   augroup END
 ]],
-	false
+  false
 )
 
 -- Show diagnostics on hover
 vim.o.updatetime = 250
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-	group = vim.api.nvim_create_augroup("float_diagnostic_cursor", { clear = true }),
-	callback = function()
-		vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
-	end,
+  group = vim.api.nvim_create_augroup("float_diagnostic_cursor", { clear = true }),
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" })
+  end,
 })
+
+-- Treesitter
+
+local fileTypes = {
+  'astro',
+  'css',
+  'dockerfile',
+  'html',
+  'javascript',
+  'js',
+  'jsdoc',
+  'json',
+  'jsonc',
+  'lua',
+  'ruby',
+  'scss',
+  'sh',
+  'ts',
+  'tsx',
+  'typescript',
+  'typescriptreact',
+  'vim',
+  'vimdoc',
+}
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = fileTypes,
+
+  callback = function() vim.treesitter.start() end,
+})
+
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"

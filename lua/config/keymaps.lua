@@ -70,6 +70,10 @@ set("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
 set("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 set("n", "<A-a>", "<Cmd>BufferCloseAllButCurrent<CR>", opts)
 
+-- Move Tabs Left/Right
+set("n", "<", "<Cmd>BufferMovePrevious<CR>", opts)
+set("n", ">", "<Cmd>BufferMoveNext<CR>", opts)
+
 -- *****************
 -- Formatting
 -- *****************

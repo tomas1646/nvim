@@ -30,8 +30,8 @@ set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 set("n", "<leader>ft", [[:%s/'\(\w\+\)\.\(\%(\w\+\.\?\)\+\)\.\(\w\+\)'/\{ file: '\1', model: '\2', key: '\3' \}]])
 
 -- Quickfix list
-set("n", "<C-k>", "<cmd>cprev<CR>zz")
-set("n", "<C-j>", "<cmd>cnext<CR>zz")
+set("n", "<A-k>", "<cmd>cprev<CR>zz")
+set("n", "<A-j>", "<cmd>cnext<CR>zz")
 
 -- Tmux sessionizer
 set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")

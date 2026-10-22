@@ -49,24 +49,28 @@ return {
       -- Capabilites -> "Useful for broadcasting to the server additional functionality (snippets, off-protocol features) provided by plugins."
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- Typescript / Javascript
-      vim.lsp.config('ts_ls', {
-        filetypes = {
-          "javascript",
-          "javascriptreact",
-          "javascript.jsx",
-          "typescript",
-          "typescriptreact",
-          "typescript.tsx",
-        },
+      -- Typescript / Javascript < 7
+      -- vim.lsp.config('ts_ls', {
+      --   filetypes = {
+      --     "javascript",
+      --     "javascriptreact",
+      --     "javascript.jsx",
+      --     "typescript",
+      --     "typescriptreact",
+      --     "typescript.tsx",
+      --   },
+      --
+      --   init_options = {
+      --     hostInfo = "neovim",
+      --   },
+      --
+      --   capabilities = capabilities,
+      -- })
+      -- vim.lsp.enable('ts_ls')
 
-        init_options = {
-          hostInfo = "neovim",
-        },
-
-        capabilities = capabilities,
-      })
-      vim.lsp.enable('ts_ls')
+      -- Typescript / Javascript > 7
+      vim.lsp.config('tsc', {})
+      vim.lsp.enable('tsc')
 
       -- eslint
       vim.lsp.config('eslint', {
@@ -138,6 +142,10 @@ return {
       -- Dockerfile
       vim.lsp.config('dockerls', {})
       vim.lsp.enable('dockerls')
+
+      -- QMLjs
+      vim.lsp.config('qmljs', {})
+      vim.lsp.enable('qmljs')
     end,
   },
 }

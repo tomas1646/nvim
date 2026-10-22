@@ -22,16 +22,6 @@ vim.api.nvim_create_user_command("FormatSync", function(args)
   require("conform").format({ async = false, lsp_format = "fallback", range = range })
 end, { range = true })
 
-local function js_ts_formatters()
-  local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-
-  if cwd == "tech-app" then
-    return { "eslint_d" }
-  else
-    return { "prettier" }
-  end
-end
-
 return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
@@ -40,10 +30,10 @@ return {
 
   opts = {
     formatters_by_ft = {
-      typescript = js_ts_formatters,
-      typescriptreact = js_ts_formatters,
-      javascript = js_ts_formatters,
-      javascriptreact = js_ts_formatters,
+      typescript = { "prettier" },
+      typescriptreact = { "prettier" },
+      javascript = { "prettier" },
+      javascriptreact = { "prettier" },
       scss = { "prettier" },
       css = { "prettier" },
       ruby = { "rubocop" },

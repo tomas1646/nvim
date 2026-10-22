@@ -11,7 +11,7 @@ return {
     local languages = {
       "astro", "bash", "dockerfile", "scss", "css", "html",
       "javascript", "jsdoc", "json", "lua", "typescript",
-      "tsx", "vim", "vimdoc", "ruby"
+      "tsx", "vim", "vimdoc", "ruby", "qmljs"
     }
 
     require("nvim-treesitter").install(languages)

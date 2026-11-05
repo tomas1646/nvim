@@ -33,8 +33,52 @@ set("n", "<leader>ft", [[:%s/'\(\w\+\)\.\(\%(\w\+\.\?\)\+\)\.\(\w\+\)'/\{ file: 
 set("n", "<A-k>", "<cmd>cprev<CR>zz")
 set("n", "<A-j>", "<cmd>cnext<CR>zz")
 
--- Tmux sessionizer
-set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+-- Herdr sessionizer (runs fzf in a floating terminal, closes when done)
+set("n", "<C-f>", function()
+  local width = math.floor(vim.o.columns * 0.8)
+  local height = math.floor(vim.o.lines * 0.8)
+  local buf = vim.api.nvim_create_buf(false, true)
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = "editor",
+    width = width,
+    height = height,
+    col = math.floor((vim.o.columns - width) / 2),
+    row = math.floor((vim.o.lines - height) / 2),
+    style = "minimal",
+    border = "rounded",
+  })
+  vim.fn.jobstart({ "herdr-sessionizer" }, {
+    term = true,
+    on_exit = function()
+      if vim.api.nvim_win_is_valid(win) then
+        vim.api.nvim_win_close(win, true)
+      end
+    end,
+  })
+  vim.cmd("startinsert")
+end)
+
+-- *****************
+-- Herdr navigation (replaces vim-tmux-navigator)
+-- Ctrl+h/j/k/l moves between nvim splits; at the edge, focuses the herdr pane
+-- in that direction. Herdr forwards these keys to nvim via ~/.config/herdr/navigate.sh
+-- *****************
+local function navigate(wincmd, direction)
+  return function()
+    local win = vim.api.nvim_get_current_win()
+    vim.cmd("wincmd " .. wincmd)
+    if vim.api.nvim_get_current_win() == win and vim.env.HERDR_PANE_ID then
+      vim.system({
+        vim.env.HERDR_BIN_PATH or "herdr", "pane", "focus",
+        "--pane", vim.env.HERDR_PANE_ID, "--direction", direction,
+      })
+    end
+  end
+end
+set("n", "<C-h>", navigate("h", "left"), { desc = "Navigate left (nvim/herdr)" })
+set("n", "<C-j>", navigate("j", "down"), { desc = "Navigate down (nvim/herdr)" })
+set("n", "<C-k>", navigate("k", "up"), { desc = "Navigate up (nvim/herdr)" })
+set("n", "<C-l>", navigate("l", "right"), { desc = "Navigate right (nvim/herdr)" })
 
 -- *****************
 -- LSP
